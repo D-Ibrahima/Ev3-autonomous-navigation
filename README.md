@@ -6,19 +6,23 @@ Ce projet m'a permis de travailler sur la navigation autonome, la logique de dé
 
 **Contexte :** projet réalisé en L2 (deuxième année de licence).
 
-Avec le même robot, j'ai développé plusieurs applications, chacune dans un programme Python du dossier [`robot-ev3-navigation/src`](src/).
+Avec le même robot, j'ai développé plusieurs applications, chacune dans un programme Python du dossier [`robot-ev3-navigation/src`](robot-ev3-navigation/src/).
 
 ## Applications
 
 | Programme | Ce qu'il fait | Capteurs utilisés |
 |---|---|---|
-| [`autodrive_evitement_obstacles.py`](src/autodrive_evitement_obstacles.py) | Navigation autonome avec évitement d'obstacles : avance si la voie est libre (> 40 cm), pivote dans une direction aléatoire à l'approche d'un obstacle, recule avec alarme sonore et LED en cas de choc | Ultrason, contact |
-| [`suivi_de_ligne.py`](src/suivi_de_ligne.py) | Suiveur de ligne noire : avance sur le noir, corrige la trajectoire vers la droite sur le blanc et vers la gauche en zone intermédiaire | Capteur de couleur (lumière réfléchie) |
-| [`suivi_ligne_obstacles_rouge.py`](src/suivi_ligne_obstacles_rouge.py) | Suivi de ligne combiné à la détection d'obstacles (recul puis virage aléatoire sous 20 cm) et arrêt à la détection de la couleur rouge | Capteur de couleur, ultrason |
-| [`suivi_couleur_rouge.py`](src/suivi_couleur_rouge.py) | Prototype de suivi d'une couleur : tout droit quand le rouge est détecté, sinon correction de trajectoire | Capteur de couleur |
-| [`braitenberg_lumiere.py`](src/braitenberg_lumiere.py) | Comportement de type véhicule de Braitenberg : la vitesse de chaque moteur dépend de la lumière ambiante mesurée par un capteur, arrêt au-dessus d'un seuil | 2 capteurs de lumière |
-| [`labyrinthe_odometrie.py`](src/labyrinthe_odometrie.py) | Parcours d'un labyrinthe par odométrie : enchaînement de déplacements et de virages à 90° calculés à partir de la rotation des roues | Encodeurs des moteurs |
-| [`polygones_odometrie.py`](src/polygones_odometrie.py) | Tracé d'un polygone régulier (vitesse, nombre de côtés et longueur saisis par l'utilisateur) avec calcul de l'angle de virage | Encodeurs des moteurs |
+| [`autodrive_evitement_obstacles.py`](robot-ev3-navigation/src/autodrive_evitement_obstacles.py) | Navigation autonome avec évitement d'obstacles : avance si la voie est libre (> 40 cm), pivote dans une direction aléatoire à l'approche d'un obstacle, recule avec alarme sonore et LED en cas de choc | Ultrason, contact |
+| [`suivi_de_ligne.py`](robot-ev3-navigation/src/suivi_de_ligne.py) | Suiveur de ligne noire : avance sur le noir, corrige la trajectoire vers la droite sur le blanc et vers la gauche en zone intermédiaire | Capteur de couleur (lumière réfléchie) |
+| [`suivi_ligne_obstacles_rouge.py`](robot-ev3-navigation/src/suivi_ligne_obstacles_rouge.py) | Suivi de ligne combiné à la détection d'obstacles (recul puis virage aléatoire sous 20 cm) et arrêt à la détection de la couleur rouge | Capteur de couleur, ultrason |
+| [`suivi_couleur_rouge.py`](robot-ev3-navigation/src/suivi_couleur_rouge.py) | Prototype de suivi d'une couleur : tout droit quand le rouge est détecté, sinon correction de trajectoire | Capteur de couleur |
+| [`braitenberg_lumiere.py`](robot-ev3-navigation/src/braitenberg_lumiere.py) | Comportement de type véhicule de Braitenberg : la vitesse de chaque moteur dépend de la lumière ambiante mesurée par un capteur, arrêt au-dessus d'un seuil | 2 capteurs de lumière |
+| [`labyrinthe_odometrie.py`](robot-ev3-navigation/src/labyrinthe_odometrie.py) | Exploration d'un labyrinthe à partir de la carte fournie : le trajet est découpé en déplacements et en virages à 90° que le robot exécute par odométrie, à partir de la rotation des roues ([vidéo](https://docs.google.com/videos/d/1STZLHLDUGNXziyZEtEbkyLlgyLmQrvhj_RijTd7NfjA/play)) | Encodeurs des moteurs |
+| [`polygones_odometrie.py`](robot-ev3-navigation/src/polygones_odometrie.py) | Tracé d'un polygone régulier (vitesse, nombre de côtés et longueur saisis par l'utilisateur) avec calcul de l'angle de virage | Encodeurs des moteurs |
+
+## Démo vidéo
+
+[Exploration du labyrinthe](https://docs.google.com/videos/d/1STZLHLDUGNXziyZEtEbkyLlgyLmQrvhj_RijTd7NfjA/play) : le robot parcourt le labyrinthe à partir de la carte qui lui a été donnée.
 
 ## Matériel
 
@@ -37,7 +41,7 @@ Avec le même robot, j'ai développé plusieurs applications, chacune dans un pr
 Sur la brique EV3 équipée d'ev3dev :
 
 ```bash
-python3 src/suivi_de_ligne.py
+python3 robot-ev3-navigation/src/suivi_de_ligne.py
 ```
 
 Les programmes à boucle continue s'arrêtent en appuyant sur n'importe quel bouton de la brique. Les seuils de lumière (noir, blanc, rouge) sont à ajuster selon l'éclairage.
