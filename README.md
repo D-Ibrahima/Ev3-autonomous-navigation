@@ -6,7 +6,7 @@ Ce projet m'a permis de travailler sur la navigation autonome, la logique de dé
 
 **Contexte :** projet réalisé en L2 (deuxième année de licence).
 
-Avec le même robot, j'ai développé plusieurs applications, chacune dans un programme Python du dossier [`src/`](src/).
+Avec le même robot, j'ai développé plusieurs applications, chacune dans un programme Python du dossier [`robot-ev3-navigation/src`](src/).
 
 ## Applications
 
